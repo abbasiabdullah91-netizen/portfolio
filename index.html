@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Abdullah Abbasi — Commercial leader who builds with AI</title>
-<meta name="description" content="11+ years at BAT, now CMO of a 15+ brand hospitality group. Three AI systems running in a live marketing function, how I run AI as a managed team, and the career behind it.">
+<title>Abdullah Abbasi — Commercial leader, AI adoption in practice</title>
+<meta name="description" content="CMO of a 15+ brand hospitality group, after 11+ years at BAT. Live review response, customer-sentiment reporting in pilot, and a nightly analytics pipeline with reliability still gated.">
 <meta name="author" content="Abdullah Abbasi">
 <meta property="og:type" content="profile">
 <link rel="canonical" href="https://abbasiabdullah91-netizen.github.io/portfolio/">
 <meta property="og:url" content="https://abbasiabdullah91-netizen.github.io/portfolio/">
-<meta property="og:title" content="Abdullah Abbasi — Commercial leader who builds with AI">
-<meta property="og:description" content="11+ years at BAT, now CMO of a 15+ brand hospitality group. Three AI systems running in a live marketing function, how I run AI as a managed team, and the career behind it.">
+<meta property="og:title" content="Abdullah Abbasi — Commercial leader, AI adoption in practice">
+<meta property="og:description" content="CMO of a 15+ brand hospitality group, after 11+ years at BAT. Live review response, customer-sentiment reporting in pilot, and a nightly analytics pipeline with reliability still gated.">
 <meta property="og:image" content="https://abbasiabdullah91-netizen.github.io/portfolio/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
-<meta property="og:image:alt" content="Abdullah Abbasi — Commercial leader who builds with AI. 11+ years, 15+ team, 3 AI systems.">
+<meta property="og:image:alt" content="Abdullah Abbasi — CMO, commercial leadership, AI adoption. 11+ years at BAT, 15+ team, review response live, sentiment in pilot, analytics gated.">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://abbasiabdullah91-netizen.github.io/portfolio/og.png">
@@ -79,6 +79,7 @@ a:focus-visible,button:focus-visible,textarea:focus-visible,summary:focus-visibl
 .hero h1{font-size:clamp(2.3rem,6vw,3.5rem);margin-bottom:16px}
 .hero .lede{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-2);max-width:52ch;margin-bottom:20px}
 .hero .lede strong{color:var(--ink);font-weight:600}
+.hero .intent{font-size:.95rem;color:var(--ink-3);max-width:64ch;margin-bottom:22px}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
 .btn{
   display:inline-block;text-decoration:none;font-size:.98rem;font-weight:600;
@@ -100,6 +101,9 @@ a:focus-visible,button:focus-visible,textarea:focus-visible,summary:focus-visibl
 .glance a{display:block;padding:14px 22px;text-decoration:none;color:var(--ink-2);font-size:.95rem}
 .glance a:hover{background:var(--bg-alt)}
 .glance b{display:block;color:var(--ink);font-size:1.25rem;font-weight:680;letter-spacing:-0.02em;margin-bottom:2px}
+.case-links{margin:0;padding:12px 22px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.9rem}
+.glance .case-links a{display:inline-flex;align-items:center;min-height:44px;padding:0;color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+.glance .case-links a:hover{background:transparent;text-decoration:none}
 
 /* career */
 .career{padding:28px 0;border-bottom:1px solid var(--rule)}
@@ -111,7 +115,7 @@ a:focus-visible,button:focus-visible,textarea:focus-visible,summary:focus-visibl
 .career details ol{margin-top:0}
 .career summary{
   cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;
-  font-size:.92rem;font-weight:600;color:var(--accent);padding:4px 0;
+  font-size:.92rem;font-weight:600;color:var(--accent);padding:4px 0;min-height:44px;
 }
 .career summary::-webkit-details-marker{display:none}
 .career summary::after{content:"→";transition:transform .15s ease}
@@ -119,7 +123,7 @@ a:focus-visible,button:focus-visible,textarea:focus-visible,summary:focus-visibl
 @media (prefers-reduced-motion:reduce){.career summary::after{transition:none}}
 .career li{padding:7px 0;border-top:1px solid var(--rule)}
 .career .role{font-weight:650;font-size:1rem;display:block}
-.career .meta{display:block;font-size:.82rem;color:var(--ink-3);margin:1px 0 4px}
+.career .meta{display:block;font-size:14px;color:var(--ink-3);margin:1px 0 4px}
 .career .out{display:block;font-size:.92rem;color:var(--ink-2)}
 .career li.now .role{color:var(--accent)}
 
@@ -129,6 +133,11 @@ a:focus-visible,button:focus-visible,textarea:focus-visible,summary:focus-visibl
 .case-head{max-width:var(--measure)}
 .case-kicker{font-size:.86rem;color:var(--ink-3);margin:0 0 10px}
 .case h2{font-size:clamp(1.6rem,3.6vw,2.3rem)}
+.case-status{
+  display:inline-block;font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;
+  font-weight:700;color:var(--accent);border:1px solid var(--rule);border-radius:var(--radius);
+  padding:4px 10px;margin:0 0 12px;
+}
 .case-grid{display:grid;gap:32px;margin-top:32px;grid-template-columns:1fr}
 @media (min-width:860px){
   .case-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px}
@@ -164,7 +173,7 @@ a:focus-visible,button:focus-visible,textarea:focus-visible,summary:focus-visibl
 .case details{margin-top:22px}
 .case summary{
   cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;
-  font-size:.95rem;font-weight:600;color:var(--accent);padding:6px 0;
+  font-size:.95rem;font-weight:600;color:var(--accent);padding:6px 0;min-height:44px;
 }
 .case summary::-webkit-details-marker{display:none}
 .case summary::after{content:"→";transition:transform .15s ease}
@@ -176,7 +185,7 @@ a:focus-visible,button:focus-visible,textarea:focus-visible,summary:focus-visibl
 
 /* demo */
 .demo{padding:56px 0;background:var(--bg-alt);border-bottom:1px solid var(--rule)}
-.demo h2{font-size:clamp(1.6rem,3.6vw,2.3rem);max-width:20ch}
+.demo h2,.demo h3{font-size:clamp(1.6rem,3.6vw,2.3rem);max-width:20ch;letter-spacing:-0.02em}
 .demo .intro{color:var(--ink-2);max-width:var(--measure);margin-top:14px}
 .demo-note{
   font-size:.86rem;color:var(--ink-3);border-left:2px solid var(--accent);
@@ -187,13 +196,13 @@ a:focus-visible,button:focus-visible,textarea:focus-visible,summary:focus-visibl
 label{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);font-weight:600;margin-bottom:8px}
 textarea{
   width:100%;min-height:150px;resize:vertical;padding:14px;
-  font:inherit;font-size:.98rem;color:var(--ink);background:var(--surface);
+  font:inherit;font-size:16px;color:var(--ink);background:var(--surface);
   border:1px solid var(--rule);border-radius:var(--radius);
 }
 textarea::placeholder{color:var(--ink-3)}
 .samples{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 14px}
 .chip{
-  font:inherit;font-size:.86rem;cursor:pointer;padding:7px 13px;
+  font:inherit;font-size:.86rem;cursor:pointer;padding:7px 13px;min-height:44px;
   background:transparent;color:var(--ink);border:1px solid var(--rule);border-radius:var(--radius);
 }
 .chip:hover{border-color:var(--accent);color:var(--accent)}
@@ -216,7 +225,7 @@ textarea::placeholder{color:var(--ink-3)}
 .how details{margin-top:18px}
 .how summary{
   cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;
-  font-size:.95rem;font-weight:600;color:var(--accent);padding:6px 0;
+  font-size:.95rem;font-weight:600;color:var(--accent);padding:6px 0;min-height:44px;
 }
 .how summary::-webkit-details-marker{display:none}
 .how summary::after{content:"→";transition:transform .15s ease}
@@ -243,7 +252,8 @@ footer p{color:var(--ink-2);max-width:52ch}
 <header class="hero">
   <div class="wrap">
     <h1>Abdullah Abbasi</h1>
-    <p class="lede">11+ years at British American Tobacco in sales, trade marketing and multi-category P&amp;L. <strong>Now CMO of a hospitality group, building the AI systems that run its marketing.</strong></p>
+    <p class="lede"><strong>CMO of a 15+ brand hospitality group, leading commercial operations and AI adoption.</strong> Before that, 11+ years at British American Tobacco in sales, trade marketing and multi-category P&amp;L. Technical implementation sits with partners; I set the problem, the workflow and the acceptance criteria.</p>
+    <p class="intent">Pakistan-based. Open to international commercial leadership and business-side AI adoption conversations; relocation requires employer sponsorship.</p>
     <div class="actions">
       <a class="btn" href="mailto:abbasi.abdullah91@gmail.com">Email me</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/abdullahabbasi91/" rel="me noopener">LinkedIn profile</a>
@@ -255,9 +265,14 @@ footer p{color:var(--ink-2);max-width:52ch}
   <div class="wrap">
     <ul>
       <li><a href="#career-title"><b>11+ years</b> in sales, trade marketing and P&amp;L at British American Tobacco</a></li>
-      <li><a href="#career-title"><b>15+ specialist team</b> built from zero as a first-time CMO</a></li>
-      <li><a href="#case-1"><b>3 AI systems</b> shipped and running in a live marketing function</a></li>
+      <li><a href="#career-title"><b>15+ specialist team</b> in delivery pods, within a self-funded marketing function</a></li>
+      <li><a href="#work"><b>Selected AI work</b> review response live &middot; sentiment in pilot &middot; analytics gated</a></li>
     </ul>
+    <p class="case-links">
+      <a href="#case-1">Review replies with human escalation</a>
+      <a href="#case-2">Owned leadership reporting</a>
+      <a href="#case-3">Customer sentiment by theme</a>
+    </p>
   </div>
 </nav>
 
@@ -266,7 +281,7 @@ footer p{color:var(--ink-2);max-width:52ch}
     <h2 id="career-title">Career</h2>
     <p class="intro">The builds below are the latest chapter of an 11+ year commercial career, not a side project.</p>
       <ol>
-      <li class="now"><span class="role">Chief Marketing Officer</span><span class="meta">15+ brand hospitality group &middot; Mar 2026 &ndash; present</span><span class="out">Built the group&rsquo;s first marketing function, a 15+ specialist team, and the AI systems below.</span></li>
+      <li class="now"><span class="role">Chief Marketing Officer</span><span class="meta">15+ brand hospitality group &middot; Mar 2026 &ndash; present</span><span class="out">Lead a 15+ specialist team organised in delivery pods, within a self-funded marketing function, and the AI adoption below.</span></li>
       <li><span class="role">Head of Marketing Deployment, New Categories &amp; Combustibles</span><span class="meta">British American Tobacco Pakistan &middot; Jul 2024 &ndash; Feb 2026</span><span class="out">First marketing leadership role. VELO to a #1 global brand power ranking, category share above 80%.</span></li>
       <li><span class="role">Senior Area Manager, Karachi</span><span class="meta">British American Tobacco Pakistan &middot; Sep 2022 &ndash; Jun 2024</span><span class="out">Multi-category P&amp;L in Pakistan&rsquo;s largest market, and 300% volume growth in six months on a redesigned vaping model.</span></li>
       </ol>
@@ -293,10 +308,11 @@ footer p{color:var(--ink-2);max-width:52ch}
     <div class="wrap">
       <div class="case-head">
         <p class="case-kicker">Review replies across a hospitality group</p>
-        <h2>Replies went from whenever someone had time to twice a day. The risky ones stayed with a person.</h2>
+        <p class="case-status">Live</p>
+        <h2>Review replies with human escalation</h2>
       </div>
       <ul class="bullets">
-        <li>Review coverage widened roughly 40% in a single evening.</li>
+        <li>Review coverage widened roughly 40% in a single evening. Replies went from whenever someone had time to twice a day.</li>
         <li>Total running cost is a fraction of one junior hire.</li>
         <li>Food safety, legal and anything touching harm still goes to a person.</li>
       </ul>
@@ -307,17 +323,17 @@ footer p{color:var(--ink-2);max-width:52ch}
           <h3>The problem</h3>
           <p>A hospitality group, 15+ brands. Every location collects public reviews. Replies were manual, so they were inconsistent, and an unanswered complaint is the first thing a customer reads before choosing where to eat.</p>
 
-          <h3>What I built</h3>
-          <p>An AI system that drafts and publishes brand-voiced replies to Google reviews across the group, twice a day, with one category permanently reserved for a human: food safety, legal disputes, and anything touching safety or harm.</p>
+          <h3>What we delivered</h3>
+          <p>An AI system that drafts and publishes brand-voiced replies to Google reviews across the group, twice a day, with one category permanently reserved for a human: food safety, legal disputes, and anything touching safety or harm. I set the workflow and acceptance criteria; technical partners implemented it.</p>
 
           <h3>How it works</h3>
           <p>The system checks for new reviews. Each one goes to an AI model carrying the brand's approved reply rules: short, acknowledge, thank or apologise, close, no names, no emojis. The same model sorts the review into ordinary or sensitive. Ordinary replies publish themselves. Sensitive ones go to a person.</p>
 
           <h3>What it proves</h3>
           <ol class="proof">
-            <li><b>I diagnose before I build.</b> An eight-week publishing failure had been attributed to the platform. It was five stacked operational faults: expired balances, full storage, two formatting defects. The AI was never the problem, and finding that saved a rebuild.</li>
+            <li><b>I diagnose before we build.</b> An eight-week publishing failure had been attributed to the platform. It was five stacked operational faults: expired balances, full storage, two formatting defects. The AI was never the problem, and finding that saved a rebuild.</li>
             <li><b>I decided where the human stays.</b> Removing the last approval step was possible. I refused it for the sensitive category. A machine that auto-replies to a food-safety complaint is a brand risk no efficiency saving pays for.</li>
-            <li><b>I learned what my own controls could not see.</b> Every monitor I built detected failure. None detected too much. One listing over-replied for days while every check read green, and a person noticing the volume felt wrong was what caught it. I built the anomaly check afterwards.</li>
+            <li><b>I learned what our controls could not see.</b> Our monitoring initially detected stoppages but missed excess activity. One listing over-replied for days while every check read green, and a person noticing the volume felt wrong was what caught it. We added the anomaly check afterwards.</li>
           </ol>
         </div>
         <aside class="rail">
@@ -343,11 +359,13 @@ footer p{color:var(--ink-2);max-width:52ch}
     <div class="wrap">
       <div class="case-head">
         <p class="case-kicker">Owned analytics in place of a paid subscription</p>
-        <h2>Leadership reporting at roughly 3% of the subscription it replaced, and a spend figure that finally tied to the finance total.</h2>
+        <p class="case-status">Reliability still gated</p>
+        <h2>Owned leadership reporting</h2>
       </div>
       <ul class="bullets">
         <li>Runs at roughly 3% of the running cost of the subscription it replaced.</li>
         <li>The spend figure went live only once it tied to the finance-verified total.</li>
+        <li>The page displays its data date and coverage gaps. Runs can fail, and reliability is still gated.</li>
       </ul>
       <details id="build-2">
         <summary>Read the build</summary>
@@ -356,16 +374,16 @@ footer p{color:var(--ink-2);max-width:52ch}
           <h3>The problem</h3>
           <p>The group was about to renew a paid analytics subscription for data the platforms already give away free through their own interface. Worse, the numbers it produced did not reconcile against what finance said had been spent, so the dashboard and the ledger disagreed and nobody could say which one was wrong.</p>
 
-          <h3>What I built</h3>
-          <p>An owned reporting pipeline. A small server pulls organic and paid performance for every brand handle directly from the platform each night and regenerates one leadership dashboard. No vendor in the middle.</p>
+          <h3>What we delivered</h3>
+          <p>An owned reporting pipeline. The pipeline refreshes reporting for participating social accounts nightly, pulling organic and paid performance directly from the platform and regenerating one leadership dashboard. No vendor in the middle. I set the workflow and acceptance criteria; technical partners implemented it.</p>
 
           <h3>What runs each night</h3>
-          <p>The server asks the platform for yesterday's numbers, stores them, and rebuilds the page. If a run fails, the page shows its own age, so an old number can never pass as a fresh one. Leadership opens one link.</p>
+          <p>The server asks the platform for yesterday's numbers, stores them, and rebuilds the page. The page displays its data date and coverage gaps; runs can fail. Leadership opens one link.</p>
 
           <h3>What it proves</h3>
           <ol class="proof">
             <li><b>Buy or own is a judgment, not a policy.</b> The subscription bought convenience over a free interface. At this volume, owning it cost a fraction and removed a vendor sitting between the business and its own performance data.</li>
-            <li><b>I held the spend figure back until it reconciled.</b> The spend figure did not go live until it tied exactly to the finance-verified total. That check runs inside the job and stops it rather than publishing something plausible and wrong.</li>
+            <li><b>I held the spend figure back until it reconciled.</b> The spend figure did not go live until it tied exactly to the finance-verified total. We reconcile against available finance-verified totals. Unverified periods are identified; affected breakdowns are withheld when checks fail.</li>
             <li><b>I state what the data cannot do.</b> Some figures the platform simply will not give you. Where that is true, the number sits beside the headline instead of being folded into it, and the dashboard says so. Two of the worst defects I caught were two numbers that looked alike being added together.</li>
           </ol>
         </div>
@@ -390,11 +408,13 @@ footer p{color:var(--ink-2);max-width:52ch}
     <div class="wrap">
       <div class="case-head">
         <p class="case-kicker">Theme-level customer sentiment</p>
-        <h2>One blended star average became eleven themes, scored separately. An operator can now see which thing is slipping, and where.</h2>
+        <p class="case-status">Pilot</p>
+        <h2>Customer sentiment by theme</h2>
       </div>
       <ul class="bullets">
         <li>11 themes scored separately, in place of one blended star average.</li>
-        <li>Serious complaints flagged the same day instead of buried in the pile.</li>
+        <li>In the pilot, serious complaints were flagged the same day instead of buried in the pile.</li>
+        <li>A pilot at the flagship outlet. Wider rollout remains gated.</li>
       </ul>
       <details id="build-3">
         <summary>Read the build, and try the scorer</summary>
@@ -403,11 +423,11 @@ footer p{color:var(--ink-2);max-width:52ch}
           <h3>The problem</h3>
           <p>Customer feedback arrived across several platforms and was read by nobody in any structured way. Leadership had a star average and nothing else. "Service is slipping" was something you heard from a manager, weeks late.</p>
 
-          <h3>What I built</h3>
-          <p>A nightly customer-sentiment engine. It collects reviews and comments, scores them by theme, and puts them on a leadership screen, with an immediate alert path for serious complaints.</p>
+          <h3>What we delivered</h3>
+          <p>A customer-sentiment pilot that scores feedback by theme and flags serious complaints. It collects reviews and comments nightly, scores them by theme, and puts them on a leadership screen, with an immediate alert path. Wider rollout remains gated. I set the workflow and acceptance criteria; technical partners implemented it.</p>
 
           <h3>How the scoring works</h3>
-          <p>Each night the system collects new feedback. An AI model breaks every review into the things the customer actually mentioned, food, service, speed, cleanliness, price and more, and scores each one separately. A review that praises the food and slates the wait counts as one positive and one negative, not one lukewarm. Anything touching safety, misconduct or fraud is flagged the same day.</p>
+          <p>Each night the system collects new feedback. An AI model breaks every review into the things the customer actually mentioned, food, service, speed, cleanliness, price and more, and scores each one separately. A review that praises the food and slates the wait counts as one positive and one negative, not one lukewarm. During the pilot measurement, serious complaints were flagged the same day at one flagship outlet.</p>
 
           <h3>What it proves</h3>
           <ol class="proof">
@@ -421,19 +441,20 @@ footer p{color:var(--ink-2);max-width:52ch}
             <dt>11 themes</dt>
             <dd>scored separately per mention, in place of a single blended star average</dd>
             <dt>Same day</dt>
-            <dd>serious complaints moved from buried in the pile to flagged on the day they arrived</dd>
+            <dd>in the pilot, serious complaints moved from buried in the pile to flagged on the day they arrived</dd>
             <dt>2x+</dt>
             <dd>one review platform ran more than twice as positive as the other, for the same restaurant in the same period, so any blended satisfaction score was largely measuring which platform people chose</dd>
           </dl>
-          <p class="caveat">What the engine did when it was measured. No uptime record is claimed.</p>
+          <p class="caveat">Measured during the pilot at one flagship outlet. No uptime record is claimed, and wider rollout remains gated.</p>
         </aside>
       </div>
       <!-- DEMO -->
       <section class="demo" aria-labelledby="demo-title">
         <div class="wrap">
-          <h2 id="demo-title">Why scoring by theme beats scoring by review</h2>
+          <h3 id="demo-title">Why scoring by theme beats scoring by review</h3>
           <p class="intro">Paste a review, or click one of the examples. The scorer splits it into the things the customer actually talked about and gives each one its own sign. One review can be positive and negative at the same time, and usually is.</p>
           <p class="demo-note">Illustrative demo. A simplified keyword stand-in for the production model, running entirely in your browser. No real customer data.</p>
+          <noscript><p class="demo-note">This demo needs JavaScript. With it switched off, the example buttons and the results panel below stay empty.</p></noscript>
 
           <div class="demo-cols">
             <div>
@@ -460,12 +481,10 @@ footer p{color:var(--ink-2);max-width:52ch}
 <section class="how also" aria-labelledby="ai-title">
   <div class="wrap">
     <h2 id="ai-title">How I work with AI</h2>
-    <p class="intro">I am not an engineer. The builds above exist because I run AI systems the way I ran commercial teams: set the brief, delegate, verify, ship.</p>
+    <p class="intro">I am not an engineer, and I do not build these systems myself. Technical partners implement them.</p>
     <ol>
-      <li><b>A managed team of models, not a chatbot</b><span>One model plans and delegates, others build in parallel, and a model from a different vendor reviews the work adversarially before anything ships — because a second copy of the same engine shares its blind spots.</span></li>
-      <li><b>An operating system for the models</b><span>A shared written memory every model reads from and writes back to, custom skills and routines for repeat jobs, and checks that catch a stale or invented fact before it spreads. It is how the systems above get built and maintained.</span></li>
-      <li><b>Infrastructure by instruction</b><span>I stand up new tooling by briefing an agent and verifying the result — calling one model from inside another, routing work between models, standing up an open-source tool end-to-end — rather than waiting on a developer.</span></li>
-      <li><b>Scale through workflows</b><span>For broad or repetitive jobs I design the workflow and let sub-agents fan out and report back, with the self-checks they must pass before the work reaches me.</span></li>
+      <li><b>What I own</b><span>I choose the business problem, set the workflow and acceptance criteria, coordinate technical partners, and lead adoption.</span></li>
+      <li><b>How errors get caught</b><span>I use a shared written record and independent checks to reduce errors, including review by a model from a different vendor, because a second copy of the same engine shares its blind spots.</span></li>
     </ol>
   </div>
 </section>
@@ -477,7 +496,7 @@ footer p{color:var(--ink-2);max-width:52ch}
     <p class="intro">In progress, no results claimed yet. Each graduates to a case study above once it has a number behind it.</p>
     <ol>
       <li><b>Brand identity, logo to brand book</b><span>A repeatable pipeline that takes a new restaurant brand from first logo options through mood board and identity to a full brand book with AI-rendered visuals and a designer hand-off.</span></li>
-      <li><b>An AI content pipeline for 15+ brands</b><span>Claude Code orchestrated to run competitor research, find the formats that are winning in each category, and produce the video and image content to match — feeding a multi-brand content calendar rather than a one-off shoot.</span></li>
+      <li><b>An AI content pipeline for 15+ brands</b><span>An AI-assisted content workflow, with human creative direction and review, feeding a multi-brand content calendar rather than a one-off shoot.</span></li>
     </ol>
   </div>
 </section>
@@ -491,7 +510,7 @@ footer p{color:var(--ink-2);max-width:52ch}
     <ol>
       <li><b>Diagnose before building.</b> <span>I stopped a rebuild after finding that the assumed cause was wrong. I look for the real fault first, even when a plausible one is already agreed.</span></li>
       <li><b>Decide where the human stays.</b> <span>Full automation was available in the review-reply system. I keep the approval step where the failure mode is a brand risk no efficiency saving pays for.</span></li>
-      <li><b>A number ships when it reconciles.</b> <span>A figure goes live once it ties to an independently verified total. The check sits inside the job and stops it rather than publishing something plausible and wrong.</span></li>
+      <li><b>Reconcile against verified totals where available.</b> <span>We reconcile against available finance-verified totals; unverified periods are identified, and affected breakdowns are withheld when checks fail.</span></li>
     </ol>
     </details>
   </div>
