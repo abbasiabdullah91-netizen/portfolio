@@ -19,35 +19,43 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://abbasiabdullah91-netizen.github.io/portfolio/og.png">
 <meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
 <style>
+/* Executive Brief: ivory / ink / teal. Dark tokens derived from #121B20. */
 :root{
-  --bg:#f6f6f3;
-  --bg-alt:#efefea;
-  --surface:#fdfdfb;
-  --ink:#16181a;
-  --ink-2:#4a4f54;
-  --ink-3:#585f63;
-  --rule:#dcdcd4;
-  --accent:#1c5c4a;
+  --bg:#f5f2ea;
+  --bg-alt:#ede9df;
+  --surface:#fbf9f4;
+  --ink:#18242a;
+  --ink-2:#3d4a50;
+  --ink-3:#56626a;
+  --rule:#d9d3c6;
+  --accent:#17675b;
   --accent-ink:#ffffff;
-  --pos:#1c5c4a;
-  --neg:#8f2f24;
-  --radius:10px;
+  --tint:#e3ece7;
+  --pos:#17675b;
+  --neg:#9a3324;
+  --radius:8px;
   --measure:64ch;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Source Sans 3","Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --bg:#101214;
-    --bg-alt:#15181a;
-    --surface:#181c1e;
-    --ink:#eceae5;
-    --ink-2:#b6bcbf;
-    --ink-3:#8c9498;
-    --rule:#2b3033;
-    --accent:#79c9ac;
-    --accent-ink:#0d1113;
-    --pos:#79c9ac;
-    --neg:#e08a7d;
+    --bg:#121b20;
+    --bg-alt:#16222a;
+    --surface:#1a272e;
+    --ink:#ece8df;
+    --ink-2:#bac3c5;
+    --ink-3:#919da1;
+    --rule:#2b3a41;
+    --accent:#6cc2ae;
+    --accent-ink:#0e1619;
+    --tint:#1d3632;
+    --pos:#6cc2ae;
+    --neg:#e59184;
   }
 }
 *{box-sizing:border-box}
@@ -56,12 +64,12 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--ink);
-  font-family:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family:var(--sans);
   font-size:17px;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3{line-height:1.15;letter-spacing:-0.02em;margin:0;font-weight:650}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;letter-spacing:-0.01em;margin:0;font-weight:600}
 p{margin:0 0 1rem}
 p:last-child{margin-bottom:0}
 a{color:inherit}
@@ -71,81 +79,103 @@ a:focus-visible,button:focus-visible,textarea:focus-visible,summary:focus-visibl
   border-radius:4px;
 }
 .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 24px}
+@media (max-width:480px){.wrap{padding:0 16px}}
 .skip{position:absolute;left:-9999px;top:0}
 .skip:focus{left:12px;top:12px;z-index:9;background:var(--accent);color:var(--accent-ink);padding:10px 14px;border-radius:var(--radius)}
 
-/* hero */
-.hero{padding:48px 0 36px;border-bottom:1px solid var(--rule)}
-.hero h1{font-size:clamp(2.3rem,6vw,3.5rem);margin-bottom:16px}
-.hero .lede{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-2);max-width:52ch;margin-bottom:20px}
-.hero .lede strong{color:var(--ink);font-weight:600}
-.hero .intent{font-size:.95rem;color:var(--ink-3);max-width:64ch;margin-bottom:22px}
-.actions{display:flex;flex-wrap:wrap;gap:12px}
+/* hero: proposition + proof panel (side by side on desktop, stacked on the phone) */
+.hero{padding:48px 0 40px;border-bottom:1px solid var(--rule)}
+.hero-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr);grid-template-areas:"text" "act" "panel"}
+@media (min-width:900px){
+  .hero{padding:72px 0 64px}
+  .hero-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);grid-template-areas:"text panel" "act panel";column-gap:56px;row-gap:28px;align-items:start}
+}
+.hero-text{grid-area:text}
+.hero .panel{grid-area:panel}
+.hero .act{grid-area:act}
+.hero h1 .name{display:block;font-family:var(--sans);font-size:1.05rem;font-weight:600;letter-spacing:.01em;color:var(--ink-3);margin-bottom:14px}
+.hero h1 .prop{display:block;font-size:clamp(2.1rem,5.2vw,3.4rem);line-height:1.08;letter-spacing:-0.015em}
+.hero .role-line{font-size:clamp(1.02rem,1.8vw,1.15rem);color:var(--ink-2);max-width:56ch;margin:20px 0 16px}
+.hero .proof-line{font-family:var(--serif);font-size:clamp(1.12rem,2vw,1.3rem);font-weight:500;line-height:1.4;max-width:46ch;margin:0;padding-left:14px;border-left:3px solid var(--accent)}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px}
 .btn{
-  display:inline-block;text-decoration:none;font-size:.98rem;font-weight:600;
-  padding:11px 20px;border-radius:var(--radius);border:1px solid var(--accent);
+  display:inline-flex;align-items:center;min-height:48px;text-decoration:none;font-size:1.02rem;font-weight:600;
+  padding:12px 22px;border-radius:var(--radius);border:1px solid var(--accent);
   background:var(--accent);color:var(--accent-ink);transition:transform .15s ease;
   white-space:nowrap;
 }
-.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
 .btn:hover{transform:translateY(-1px)}
 .btn:active{transform:translateY(1px)}
 @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover,.btn:active{transform:none}}
+.text-link{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-weight:600;text-decoration-thickness:1px;text-underline-offset:4px}
+.hero .ai-line{font-size:.95rem;font-weight:600;color:var(--ink-2);margin:14px 0 0;max-width:56ch}
+.act .walk{font-family:var(--serif);font-style:italic;color:var(--ink-2);margin:14px 0 0;max-width:46ch}
 
-/* at a glance */
-.glance{border-bottom:1px solid var(--rule);background:var(--surface)}
-.glance ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr}
-@media (min-width:760px){.glance ul{grid-template-columns:repeat(3,1fr)}}
-.glance li + li{border-top:1px solid var(--rule)}
-@media (min-width:760px){.glance li + li{border-top:0;border-left:1px solid var(--rule)}}
-.glance a{display:block;padding:14px 22px;text-decoration:none;color:var(--ink-2);font-size:.95rem}
-.glance a:hover{background:var(--bg-alt)}
-.glance b{display:block;color:var(--ink);font-size:1.25rem;font-weight:680;letter-spacing:-0.02em;margin-bottom:2px}
-.case-links{margin:0;padding:12px 22px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.9rem}
-.glance .case-links a{display:inline-flex;align-items:center;min-height:44px;padding:0;color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
-.glance .case-links a:hover{background:transparent;text-decoration:none}
+.panel{background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);padding:6px 22px}
+.panel dl{margin:0}
+.panel .row{padding:16px 0;border-top:1px solid var(--rule)}
+.panel .row:first-child{border-top:0}
+.panel dt{font-family:var(--serif);font-size:1.25rem;font-weight:600;line-height:1.25}
+.panel dd{margin:3px 0 0;color:var(--ink-2);font-size:.95rem;line-height:1.45}
+.panel .ai dd{margin-top:6px}
+.status-list{list-style:none;margin:0;padding:0}
+.status-list a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;color:var(--ink);text-decoration:none;border-top:1px dashed var(--rule)}
+.status-list li:first-child a{border-top:0}
+.status-list a span:first-child{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:var(--rule)}
+.status-list a:hover span:first-child{text-decoration-color:var(--accent)}
+
+/* status words: always written out, colour is only a second signal */
+.tag{
+  display:inline-block;font-family:var(--sans);font-size:.8125rem;text-transform:uppercase;letter-spacing:.08em;
+  font-weight:700;color:var(--accent);background:var(--tint);border:1px solid var(--accent);border-radius:999px;
+  padding:2px 10px;white-space:nowrap;line-height:1.5;
+}
+.tag.pilot{border-style:dashed}
+.tag.gated{background:transparent;color:var(--ink-2);border-color:var(--ink-3)}
+
+/* positioning strip: partner line + sponsorship line, once each */
+.position{padding:24px 0;border-bottom:1px solid var(--rule);background:var(--bg-alt)}
+.position p{max-width:70ch;color:var(--ink-2);margin:0 0 6px}
+.position p:first-child{color:var(--ink);font-weight:600}
 
 /* career */
-.career{padding:28px 0;border-bottom:1px solid var(--rule)}
-.career h2{font-size:clamp(1.25rem,2.6vw,1.55rem)}
-.career .intro,.also .intro{color:var(--ink-2);max-width:70ch;margin-top:8px;font-size:.93rem}
+.career{padding:40px 0;border-bottom:1px solid var(--rule)}
+.career h2{font-size:clamp(1.5rem,3vw,1.9rem)}
 .career ol{margin:14px 0 0;padding:0;list-style:none;display:grid;column-gap:44px;grid-template-columns:1fr}
 @media (min-width:860px){.career details ol{grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);grid-auto-flow:column}}
 .career details{margin-top:8px}
 .career details ol{margin-top:0}
-.career summary{
+.career summary,.case summary{
   cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;
-  font-size:.92rem;font-weight:600;color:var(--accent);padding:4px 0;min-height:44px;
+  font-size:.95rem;font-weight:600;color:var(--accent);padding:6px 0;min-height:44px;
 }
-.career summary::-webkit-details-marker{display:none}
-.career summary::after{content:"→";transition:transform .15s ease}
-.career details[open] summary::after{transform:rotate(90deg)}
-@media (prefers-reduced-motion:reduce){.career summary::after{transition:none}}
-.career li{padding:7px 0;border-top:1px solid var(--rule)}
-.career .role{font-weight:650;font-size:1rem;display:block}
+.career summary::-webkit-details-marker,.case summary::-webkit-details-marker{display:none}
+.career summary::after,.case summary::after{content:"→";transition:transform .15s ease}
+.career details[open] summary::after,.case details[open] summary::after{transform:rotate(90deg)}
+@media (prefers-reduced-motion:reduce){.career summary::after,.case summary::after{transition:none}}
+.career li{padding:10px 0;border-top:1px solid var(--rule)}
+.career .role{font-weight:600;font-size:1.02rem;display:block}
 .career .meta{display:block;font-size:14px;color:var(--ink-3);margin:1px 0 4px}
-.career .out{display:block;font-size:.92rem;color:var(--ink-2)}
+.career .out{display:block;font-size:.95rem;color:var(--ink-2)}
 .career li.now .role{color:var(--accent)}
 
 /* case studies */
 .cases{padding:8px 0 0}
+.cases-intro{padding-top:40px}
+.cases-intro h2{font-size:clamp(1.5rem,3vw,1.9rem)}
 .case{padding:44px 0;border-bottom:1px solid var(--rule)}
 .case-head{max-width:var(--measure)}
-.case-kicker{font-size:.86rem;color:var(--ink-3);margin:0 0 10px}
+.case-kicker{font-size:.9rem;color:var(--ink-3);margin:0 0 10px}
 .case h2{font-size:clamp(1.6rem,3.6vw,2.3rem)}
-.case-status{
-  display:inline-block;font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;
-  font-weight:700;color:var(--accent);border:1px solid var(--rule);border-radius:var(--radius);
-  padding:4px 10px;margin:0 0 12px;
-}
+.case-status{margin:0 0 12px}
 .case-grid{display:grid;gap:32px;margin-top:32px;grid-template-columns:1fr}
 @media (min-width:860px){
   .case-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px}
   .case.flip .case-grid > .rail{order:-1}
 }
 .body h3{
-  font-size:.82rem;text-transform:uppercase;letter-spacing:.09em;
-  color:var(--ink-3);font-weight:600;margin:26px 0 8px;
+  font-family:var(--sans);font-size:.8125rem;text-transform:uppercase;letter-spacing:.09em;
+  color:var(--ink-3);font-weight:700;margin:26px 0 8px;
 }
 .body h3:first-child{margin-top:0}
 .body p{color:var(--ink-2);max-width:var(--measure)}
@@ -155,45 +185,39 @@ a:focus-visible,button:focus-visible,textarea:focus-visible,summary:focus-visibl
 .proof li::before{
   counter-increment:pr;content:counter(pr);
   position:absolute;left:0;top:.1em;
-  font-size:.78rem;font-weight:700;color:var(--accent);
+  font-size:.8125rem;font-weight:700;color:var(--accent);
 }
 .proof b{color:var(--ink);font-weight:600}
 .rail{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:22px 24px;align-self:start}
 .rail dl{margin:0}
-.rail dt{font-size:1.55rem;font-weight:680;letter-spacing:-0.02em;line-height:1.2}
+.rail dt{font-family:var(--serif);font-size:1.55rem;font-weight:600;letter-spacing:-0.01em;line-height:1.2}
 .rail dd{margin:4px 0 20px;color:var(--ink-2);font-size:.95rem;line-height:1.45}
 .rail dd:last-child{margin-bottom:0}
-.rail .caveat{border-top:1px solid var(--rule);margin-top:4px;padding-top:14px;font-size:.86rem;color:var(--ink-3)}
+.rail .caveat{border-top:1px solid var(--rule);margin-top:4px;padding-top:14px;font-size:.875rem;color:var(--ink-3)}
 
-/* cards + collapsed detail */
 .bullets{margin:22px 0 0;padding:0;list-style:none;max-width:var(--measure)}
 .bullets li{position:relative;padding-left:20px;margin-bottom:9px;color:var(--ink-2)}
 .bullets li:last-child{margin-bottom:0}
 .bullets li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .case details{margin-top:22px}
-.case summary{
-  cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;
-  font-size:.95rem;font-weight:600;color:var(--accent);padding:6px 0;min-height:44px;
-}
-.case summary::-webkit-details-marker{display:none}
-.case summary::after{content:"→";transition:transform .15s ease}
-.case details[open] summary::after{transform:rotate(90deg)}
-@media (prefers-reduced-motion:reduce){.case summary::after{transition:none}}
+.teaser{margin:22px 0 0;color:var(--ink-2);max-width:var(--measure);font-style:italic;font-family:var(--serif)}
+.teaser + details{margin-top:6px}
 .case details > .case-grid{margin-top:24px}
 .case .demo{margin-top:32px;padding:28px 0;border:1px solid var(--rule);border-radius:var(--radius)}
 .case .demo .wrap{padding:0 22px}
+@media (max-width:480px){.case .demo .wrap{padding:0 16px}}
 
 /* demo */
 .demo{padding:56px 0;background:var(--bg-alt);border-bottom:1px solid var(--rule)}
-.demo h2,.demo h3{font-size:clamp(1.6rem,3.6vw,2.3rem);max-width:20ch;letter-spacing:-0.02em}
+.demo h2,.demo h3{font-size:clamp(1.6rem,3.6vw,2.3rem);max-width:20ch}
 .demo .intro{color:var(--ink-2);max-width:var(--measure);margin-top:14px}
 .demo-note{
-  font-size:.86rem;color:var(--ink-3);border-left:2px solid var(--accent);
+  font-size:.875rem;color:var(--ink-3);border-left:2px solid var(--accent);
   padding-left:12px;margin-top:18px;max-width:60ch;
 }
-.demo-cols{display:grid;gap:24px;margin-top:28px;grid-template-columns:1fr}
-@media (min-width:860px){.demo-cols{grid-template-columns:1fr 1fr;gap:36px}}
-label{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);font-weight:600;margin-bottom:8px}
+.demo-cols{display:grid;gap:24px;margin-top:28px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.demo-cols{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px}}
+label{display:block;font-size:.8125rem;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);font-weight:700;margin-bottom:8px}
 textarea{
   width:100%;min-height:150px;resize:vertical;padding:14px;
   font:inherit;font-size:16px;color:var(--ink);background:var(--surface);
@@ -202,15 +226,15 @@ textarea{
 textarea::placeholder{color:var(--ink-3)}
 .samples{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 14px}
 .chip{
-  font:inherit;font-size:.86rem;cursor:pointer;padding:7px 13px;min-height:44px;
+  font:inherit;font-size:.875rem;cursor:pointer;padding:7px 13px;min-height:44px;
   background:transparent;color:var(--ink);border:1px solid var(--rule);border-radius:var(--radius);
 }
 .chip:hover{border-color:var(--accent);color:var(--accent)}
 .out-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:4px}
-.out-head span{font-size:.82rem;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);font-weight:600}
+.out-head span{font-size:.8125rem;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);font-weight:700}
 .theme-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--rule)}
 .theme-row .name{font-weight:600;text-transform:capitalize}
-.theme-row .quote{display:block;font-weight:400;text-transform:none;font-size:.86rem;color:var(--ink-3);margin-top:2px;max-width:42ch}
+.theme-row .quote{display:block;font-weight:400;text-transform:none;font-size:.875rem;color:var(--ink-3);margin-top:2px;max-width:42ch}
 .theme-row .quote::first-letter{text-transform:uppercase}
 .tally{font-variant-numeric:tabular-nums;font-size:.95rem;white-space:nowrap}
 .tally .p{color:var(--pos);font-weight:650}
@@ -220,100 +244,94 @@ textarea::placeholder{color:var(--ink-3)}
 .verdict b{color:var(--ink)}
 
 /* how i work */
-.how{padding:56px 0;border-bottom:1px solid var(--rule)}
+.how{padding:48px 0;border-bottom:1px solid var(--rule)}
 .how h2{font-size:clamp(1.6rem,3.6vw,2.3rem)}
-.how details{margin-top:18px}
-.how summary{
-  cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;
-  font-size:.95rem;font-weight:600;color:var(--accent);padding:6px 0;min-height:44px;
-}
-.how summary::-webkit-details-marker{display:none}
-.how summary::after{content:"→";transition:transform .15s ease}
-.how details[open] summary::after{transform:rotate(90deg)}
-@media (prefers-reduced-motion:reduce){.how summary::after{transition:none}}
-.how ol{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:0}
+.how .sub{color:var(--ink-2);margin:10px 0 0;max-width:70ch}
+.how ol{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:0}
 .how li{padding:20px 0;border-top:1px solid var(--rule);display:grid;gap:6px}
-@media (min-width:860px){.how li{grid-template-columns:minmax(0,22ch) minmax(0,1fr);gap:32px;align-items:baseline}}
-.how li b{font-size:1.08rem;font-weight:650}
+@media (min-width:860px){.how li{grid-template-columns:minmax(0,24ch) minmax(0,1fr);gap:32px;align-items:baseline}}
+.how li b{font-family:var(--serif);font-size:1.12rem;font-weight:600}
 .how li span{color:var(--ink-2)}
 
 /* footer */
 footer{padding:48px 0 64px}
-footer h2{font-size:1.3rem;margin-bottom:12px}
-footer p{color:var(--ink-2);max-width:52ch}
-.foot-links{display:flex;flex-wrap:wrap;gap:20px;margin-top:20px;font-size:.98rem}
-.foot-links a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
-.foot-note{margin-top:32px;padding-top:20px;border-top:1px solid var(--rule);font-size:.84rem;color:var(--ink-3);max-width:60ch}
+footer h2{font-size:1.5rem;margin-bottom:8px}
+.foot-links{display:flex;flex-wrap:wrap;gap:4px 24px;margin-top:8px;font-size:1rem}
+.foot-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+.foot-note{margin-top:28px;padding-top:20px;border-top:1px solid var(--rule);font-size:.875rem;color:var(--ink-3);max-width:60ch}
 </style>
 </head>
 <body>
 <a class="skip" href="#work">Skip to the work</a>
 
 <header class="hero">
-  <div class="wrap">
-    <h1>Abdullah Abbasi</h1>
-    <p class="lede"><strong>CMO of a 15+ brand hospitality group, leading commercial operations and AI adoption.</strong> Before that, 11+ years at British American Tobacco in sales, trade marketing and multi-category P&amp;L. Technical implementation sits with partners; I set the problem, the workflow and the acceptance criteria.</p>
-    <p class="intent">Pakistan-based. Open to international commercial leadership and business-side AI adoption conversations; relocation requires employer sponsorship.</p>
-    <div class="actions">
-      <a class="btn" href="mailto:abbasi.abdullah91@gmail.com">Email me</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/abdullahabbasi91/" rel="me noopener">LinkedIn profile</a>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1><span class="name">Abdullah Abbasi</span><span class="prop">Commercial leadership. Practical AI adoption.</span></h1>
+      <p class="role-line">CMO of a 15+ brand hospitality group. 11+ years at British American Tobacco across sales, trade marketing and multi-category P&amp;L; formal marketing leadership since July 2024.</p>
+      <p class="proof-line">At BAT, redesigned a vaping brand's commercial model: 300% volume growth in six months.</p>
+      <p class="ai-line">AI systems: Review replies live &middot; Sentiment in pilot &middot; Analytics reliability gated</p>
+    </div>
+
+    <aside class="panel" aria-label="Proof at a glance">
+      <dl>
+        <div class="row">
+          <dt>Eight-figure USD</dt>
+          <dd>annual marketing budget, British American Tobacco</dd>
+        </div>
+        <div class="row">
+          <dt>15+ specialist team</dt>
+          <dd>in delivery pods, within a self-funded marketing function</dd>
+        </div>
+        <div class="row">
+          <dt>A Better Tomorrow Award, 2024</dt>
+          <dd>BAT Pakistan's highest monetary award, for delivering the Karachi distributor changeover</dd>
+        </div>
+        <div class="row ai">
+          <dt>AI adoption</dt>
+          <dd>
+            <ul class="status-list" aria-label="Review replies live, sentiment in pilot, analytics reliability gated">
+              <li><a href="#case-1"><span>Review replies</span><span class="tag live">Live</span></a></li>
+              <li><a href="#case-3"><span>Sentiment</span><span class="tag pilot">Pilot</span></a></li>
+              <li><a href="#case-2"><span>Analytics</span><span class="tag gated">Reliability gated</span></a></li>
+            </ul>
+          </dd>
+        </div>
+      </dl>
+    </aside>
+
+    <div class="act">
+      <div class="actions">
+        <a class="btn" href="mailto:abbasi.abdullah91@gmail.com">Discuss a leadership role</a>
+        <a class="text-link" href="https://www.linkedin.com/in/abdullahabbasi91/" rel="me noopener">LinkedIn profile</a>
+      </div>
+      <p class="walk">Happy to walk through any of these, including the decisions I refused.</p>
     </div>
   </div>
 </header>
 
-<nav class="glance" aria-label="At a glance">
+<section class="position" aria-label="How I work with partners, and availability">
   <div class="wrap">
-    <ul>
-      <li><a href="#career-title"><b>11+ years</b> in sales, trade marketing and P&amp;L at British American Tobacco</a></li>
-      <li><a href="#career-title"><b>15+ specialist team</b> in delivery pods, within a self-funded marketing function</a></li>
-      <li><a href="#work"><b>Selected AI work</b> review response live &middot; sentiment in pilot &middot; analytics gated</a></li>
-    </ul>
-    <p class="case-links">
-      <a href="#case-1">Review replies with human escalation</a>
-      <a href="#case-2">Owned leadership reporting</a>
-      <a href="#case-3">Customer sentiment by theme</a>
-    </p>
-  </div>
-</nav>
-
-<section class="career" aria-labelledby="career-title">
-  <div class="wrap">
-    <h2 id="career-title">Career</h2>
-    <p class="intro">The builds below are the latest chapter of an 11+ year commercial career, not a side project.</p>
-      <ol>
-      <li class="now"><span class="role">Chief Marketing Officer</span><span class="meta">15+ brand hospitality group &middot; Mar 2026 &ndash; present</span><span class="out">Lead a 15+ specialist team organised in delivery pods, within a self-funded marketing function, and the AI adoption below.</span></li>
-      <li><span class="role">Head of Marketing Deployment, New Categories &amp; Combustibles</span><span class="meta">British American Tobacco Pakistan &middot; Jul 2024 &ndash; Feb 2026</span><span class="out">First marketing leadership role. VELO to a #1 global brand power ranking, category share above 80%.</span></li>
-      <li><span class="role">Senior Area Manager, Karachi</span><span class="meta">British American Tobacco Pakistan &middot; Sep 2022 &ndash; Jun 2024</span><span class="out">Multi-category P&amp;L in Pakistan&rsquo;s largest market, and 300% volume growth in six months on a redesigned vaping model.</span></li>
-      </ol>
-      <details id="earlier-roles">
-        <summary>Earlier roles, 2014&ndash;2022</summary>
-        <ol>
-      <li><span class="role">Capability Transformation Manager</span><span class="meta">British American Tobacco Pakistan &middot; May &ndash; Sep 2022</span><span class="out">Designed the region&rsquo;s first 360-degree capability development platform.</span></li>
-      <li><span class="role">Head of Shopper Marketing &amp; Category Planning</span><span class="meta">National Foods, Pakistan &middot; Dec 2021 &ndash; Apr 2022</span><span class="out">Managed trade, category and shopper investment, and sales and operations planning.</span></li>
-      <li><span class="role">Distribution Development Manager, VELO</span><span class="meta">British American Tobacco Pakistan &middot; Sep 2020 &ndash; Nov 2021</span><span class="out">Scaled Pakistan into a top-five global market for a reduced-risk category, across the Middle East and South Asia.</span></li>
-      <li><span class="role">Junior Area Manager</span><span class="meta">British American Tobacco Pakistan &middot; Aug 2019 &ndash; Aug 2020</span><span class="out">Launched a new nicotine pouch category and delivered the highest value growth nationally.</span></li>
-      <li><span class="role">Brand Activation Manager</span><span class="meta">British American Tobacco Pakistan &middot; Feb &ndash; Jul 2019</span><span class="out">Pakistan&rsquo;s first new-category workshop, plus an always-on brand activation platform.</span></li>
-      <li><span class="role">Area Manager, DG Khan</span><span class="meta">British American Tobacco Pakistan &middot; Aug 2017 &ndash; Feb 2019</span><span class="out">Absolute share leadership above 50%. Best Region, South Punjab.</span></li>
-      <li><span class="role">Brands Attach&eacute;, Premium</span><span class="meta">British American Tobacco Pakistan &middot; Jan &ndash; Apr 2016</span><span class="out">Head-office secondment during the territory role: a premium brand migration and a relaunch.</span></li>
-      <li><span class="role">Territory Manager</span><span class="meta">British American Tobacco Pakistan &middot; Oct 2014 &ndash; Jul 2017</span><span class="out">Sales, distribution and trade marketing across two Karachi territories.</span></li>
-        </ol>
-      </details>
+    <p>I choose the business problem, design the workflow and lead adoption; technical partners implement.</p>
+    <p>Pakistan-based. Open to international commercial leadership and business-side AI adoption conversations; relocation requires employer sponsorship.</p>
   </div>
 </section>
 
 <main id="work" class="cases">
+  <div class="wrap cases-intro">
+    <h2>Selected AI work</h2>
+  </div>
 
-  <!-- CASE 1 -->
+  <!-- CASE 1: LIVE -->
   <article class="case" id="case-1">
     <div class="wrap">
       <div class="case-head">
         <p class="case-kicker">Review replies across a hospitality group</p>
-        <p class="case-status">Live</p>
+        <p class="case-status"><span class="tag live">Live</span></p>
         <h2>Review replies with human escalation</h2>
       </div>
       <ul class="bullets">
         <li>Review coverage widened roughly 40% in a single evening. Replies went from whenever someone had time to twice a day.</li>
-        <li>Total running cost is a fraction of one junior hire.</li>
         <li>Food safety, legal and anything touching harm still goes to a person.</li>
       </ul>
       <details id="build-1">
@@ -342,8 +360,6 @@ footer p{color:var(--ink-2);max-width:52ch}
             <dd>wider review coverage in a single evening, once the build was standardised into a repeatable recipe</dd>
             <dt>A full week</dt>
             <dd>ran clean end to end at the graduation check, with zero sensitive reviews misrouted</dd>
-            <dt>A fraction</dt>
-            <dd>of one junior hire is the total running cost of the system</dd>
             <dt>A quarter to a third</dt>
             <dd>of the old volume is what remained in the human queue: the sensitive slice only</dd>
           </dl>
@@ -354,61 +370,12 @@ footer p{color:var(--ink-2);max-width:52ch}
     </div>
   </article>
 
-  <!-- CASE 2 -->
-  <article class="case flip" id="case-2">
-    <div class="wrap">
-      <div class="case-head">
-        <p class="case-kicker">Owned analytics in place of a paid subscription</p>
-        <p class="case-status">Reliability still gated</p>
-        <h2>Owned leadership reporting</h2>
-      </div>
-      <ul class="bullets">
-        <li>Runs at roughly 3% of the running cost of the subscription it replaced.</li>
-        <li>The spend figure went live only once it tied to the finance-verified total.</li>
-        <li>The page displays its data date and coverage gaps. Runs can fail, and reliability is still gated.</li>
-      </ul>
-      <details id="build-2">
-        <summary>Read the build</summary>
-      <div class="case-grid">
-        <div class="body">
-          <h3>The problem</h3>
-          <p>The group was about to renew a paid analytics subscription for data the platforms already give away free through their own interface. Worse, the numbers it produced did not reconcile against what finance said had been spent, so the dashboard and the ledger disagreed and nobody could say which one was wrong.</p>
-
-          <h3>What we delivered</h3>
-          <p>An owned reporting pipeline. The pipeline refreshes reporting for participating social accounts nightly, pulling organic and paid performance directly from the platform and regenerating one leadership dashboard. No vendor in the middle. I set the workflow and acceptance criteria; technical partners implemented it.</p>
-
-          <h3>What runs each night</h3>
-          <p>The server asks the platform for yesterday's numbers, stores them, and rebuilds the page. The page displays its data date and coverage gaps; runs can fail. Leadership opens one link.</p>
-
-          <h3>What it proves</h3>
-          <ol class="proof">
-            <li><b>Buy or own is a judgment, not a policy.</b> The subscription bought convenience over a free interface. At this volume, owning it cost a fraction and removed a vendor sitting between the business and its own performance data.</li>
-            <li><b>I held the spend figure back until it reconciled.</b> The spend figure did not go live until it tied exactly to the finance-verified total. We reconcile against available finance-verified totals. Unverified periods are identified; affected breakdowns are withheld when checks fail.</li>
-            <li><b>I state what the data cannot do.</b> Some figures the platform simply will not give you. Where that is true, the number sits beside the headline instead of being folded into it, and the dashboard says so. Two of the worst defects I caught were two numbers that looked alike being added together.</li>
-          </ol>
-        </div>
-        <aside class="rail">
-          <dl>
-            <dt>~3%</dt>
-            <dd>of the replaced subscription's running cost, roughly a 25x to 40x reduction, with the data itself at zero cost</dd>
-            <dt>38%</dt>
-            <dd>of one month's spend had been sitting unattributed before the fix, and therefore missing from every brand's numbers</dd>
-            <dt>Four fifths</dt>
-            <dd>roughly how far published content had been under-counted until the history was rebuilt and creator collaborations were added</dd>
-          </dl>
-          <p class="caveat">Coverage gaps are published on the dashboard as a stated caveat rather than quietly rounded up. Figures describe the pipeline as measured, not a running service level.</p>
-        </aside>
-      </div>
-      </details>
-    </div>
-  </article>
-
-  <!-- CASE 3 -->
-  <article class="case" id="case-3">
+  <!-- CASE 3: PILOT -->
+  <article class="case flip" id="case-3">
     <div class="wrap">
       <div class="case-head">
         <p class="case-kicker">Theme-level customer sentiment</p>
-        <p class="case-status">Pilot</p>
+        <p class="case-status"><span class="tag pilot">Pilot</span></p>
         <h2>Customer sentiment by theme</h2>
       </div>
       <ul class="bullets">
@@ -416,6 +383,7 @@ footer p{color:var(--ink-2);max-width:52ch}
         <li>In the pilot, serious complaints were flagged the same day instead of buried in the pile.</li>
         <li>A pilot at the flagship outlet. Wider rollout remains gated.</li>
       </ul>
+      <p class="teaser">Inside: a small in-browser scorer that shows how one review can be positive and negative at the same time.</p>
       <details id="build-3">
         <summary>Read the build, and try the scorer</summary>
       <div class="case-grid">
@@ -477,42 +445,88 @@ footer p{color:var(--ink-2);max-width:52ch}
     </div>
   </article>
 
-<!-- HOW I WORK WITH AI -->
-<section class="how also" aria-labelledby="ai-title">
-  <div class="wrap">
-    <h2 id="ai-title">How I work with AI</h2>
-    <p class="intro">I am not an engineer, and I do not build these systems myself. Technical partners implement them.</p>
-    <ol>
-      <li><b>What I own</b><span>I choose the business problem, set the workflow and acceptance criteria, coordinate technical partners, and lead adoption.</span></li>
-      <li><b>How errors get caught</b><span>I use a shared written record and independent checks to reduce errors, including review by a model from a different vendor, because a second copy of the same engine shares its blind spots.</span></li>
-    </ol>
-  </div>
-</section>
+  <!-- CASE 2: GATED -->
+  <article class="case" id="case-2">
+    <div class="wrap">
+      <div class="case-head">
+        <p class="case-kicker">Owned analytics in place of a paid subscription</p>
+        <p class="case-status"><span class="tag gated">Reliability still gated</span></p>
+        <h2>Owned leadership reporting</h2>
+      </div>
+      <ul class="bullets">
+        <li>An owned reporting workflow for participating social accounts; reliability remains gated.</li>
+        <li>The spend figure went live only once it tied to the finance-verified total.</li>
+        <li>The page displays its data date and coverage gaps. Runs can fail, and reliability is still gated.</li>
+      </ul>
+      <details id="build-2">
+        <summary>Read the build</summary>
+      <div class="case-grid">
+        <div class="body">
+          <h3>The problem</h3>
+          <p>The group was about to renew a paid analytics subscription for data the platforms already give away free through their own interface. Worse, the numbers it produced did not reconcile against what finance said had been spent, so the dashboard and the ledger disagreed and nobody could say which one was wrong.</p>
 
-<!-- ALSO BUILDING -->
-<section class="how also" aria-labelledby="also-title">
-  <div class="wrap">
-    <h2 id="also-title">Also building</h2>
-    <p class="intro">In progress, no results claimed yet. Each graduates to a case study above once it has a number behind it.</p>
-    <ol>
-      <li><b>Brand identity, logo to brand book</b><span>A repeatable pipeline that takes a new restaurant brand from first logo options through mood board and identity to a full brand book with AI-rendered visuals and a designer hand-off.</span></li>
-      <li><b>An AI content pipeline for 15+ brands</b><span>An AI-assisted content workflow, with human creative direction and review, feeding a multi-brand content calendar rather than a one-off shoot.</span></li>
-    </ol>
-  </div>
-</section>
+          <h3>What we delivered</h3>
+          <p>An owned reporting pipeline. The pipeline refreshes reporting for participating social accounts nightly, pulling organic and paid performance directly from the platform and regenerating one leadership dashboard. No vendor in the middle. I set the workflow and acceptance criteria; technical partners implemented it.</p>
+
+          <h3>What runs each night</h3>
+          <p>The server asks the platform for yesterday's numbers, stores them, and rebuilds the page. The page displays its data date and coverage gaps; runs can fail. Leadership opens one link.</p>
+
+          <h3>What it proves</h3>
+          <ol class="proof">
+            <li><b>Buy or own is a judgment, not a policy.</b> The subscription bought convenience over a free interface. At this volume, owning it removed a vendor sitting between the business and its own performance data.</li>
+            <li><b>I held the spend figure back until it reconciled.</b> The spend figure did not go live until it tied exactly to the finance-verified total. We reconcile against available finance-verified totals. Unverified periods are identified; affected breakdowns are withheld when checks fail.</li>
+            <li><b>I state what the data cannot do.</b> Some figures the platform simply will not give you. Where that is true, the number sits beside the headline instead of being folded into it, and the dashboard says so. Two of the worst defects I caught were two numbers that looked alike being added together.</li>
+          </ol>
+        </div>
+        <aside class="rail">
+          <dl>
+            <dt>38%</dt>
+            <dd>of one month's spend had been sitting unattributed before the fix, and therefore missing from every brand's numbers</dd>
+            <dt>Four fifths</dt>
+            <dd>roughly how far published content had been under-counted until the history was rebuilt and creator collaborations were added</dd>
+          </dl>
+          <p class="caveat">Coverage gaps are published on the dashboard as a stated caveat rather than quietly rounded up. Figures describe the pipeline as measured, not a running service level.</p>
+        </aside>
+      </div>
+      </details>
+    </div>
+  </article>
 
 <!-- HOW I WORK -->
 <section class="how" aria-labelledby="how-title">
   <div class="wrap">
     <h2 id="how-title">How I work</h2>
-    <details id="how-detail">
-      <summary>Three rules, and what each one cost me to learn</summary>
+    <p class="sub">Three rules, and what each one cost me to learn.</p>
     <ol>
       <li><b>Diagnose before building.</b> <span>I stopped a rebuild after finding that the assumed cause was wrong. I look for the real fault first, even when a plausible one is already agreed.</span></li>
       <li><b>Decide where the human stays.</b> <span>Full automation was available in the review-reply system. I keep the approval step where the failure mode is a brand risk no efficiency saving pays for.</span></li>
       <li><b>Reconcile against verified totals where available.</b> <span>We reconcile against available finance-verified totals; unverified periods are identified, and affected breakdowns are withheld when checks fail.</span></li>
+      <li><b>How errors get caught</b><span>I use a shared written record and independent checks to reduce errors, including review by a model from a different vendor, because a second copy of the same engine shares its blind spots.</span></li>
     </ol>
-    </details>
+  </div>
+</section>
+
+<section class="career" aria-labelledby="career-title">
+  <div class="wrap">
+    <h2 id="career-title">Career</h2>
+      <ol>
+      <li class="now"><span class="role">Chief Marketing Officer</span><span class="meta">15+ brand hospitality group &middot; Mar 2026 &ndash; present</span><span class="out">Lead a 15+ specialist team organised in delivery pods, within a self-funded marketing function, and the AI adoption above.</span></li>
+      <li><span class="role">Head of Marketing Deployment, New Categories &amp; Combustibles</span><span class="meta">British American Tobacco Pakistan &middot; Jul 2024 &ndash; Feb 2026</span><span class="out">First marketing leadership role. Accountable for an eight-figure USD annual marketing budget. VELO to a #1 global brand power ranking, category share above 80%.</span></li>
+      <li><span class="role">Senior Area Manager, Karachi</span><span class="meta">British American Tobacco Pakistan &middot; Sep 2022 &ndash; Jun 2024</span><span class="out">Multi-category P&amp;L in Pakistan&rsquo;s largest market. Team of 12 Territory Managers and 2 Key Account Managers. Won BAT Pakistan's highest monetary award, 'A Better Tomorrow Award,' for delivering the Karachi distributor changeover (2024).</span></li>
+      </ol>
+      <details id="earlier-roles">
+        <summary>Earlier roles, 2014&ndash;2022</summary>
+        <ol>
+      <li><span class="role">Capability Transformation Manager</span><span class="meta">British American Tobacco Pakistan &middot; May &ndash; Aug 2022</span><span class="out">Designed the region&rsquo;s first 360-degree capability development platform.</span></li>
+      <li><span class="role">Head of Shopper Marketing &amp; Category Planning</span><span class="meta">National Foods, Pakistan &middot; Dec 2021 &ndash; Apr 2022</span><span class="out">Managed trade, category and shopper investment, and sales and operations planning.</span></li>
+      <li><span class="role">Distribution Development Manager, VELO</span><span class="meta">British American Tobacco Pakistan &middot; Sep 2020 &ndash; Nov 2021</span><span class="out">Scaled Pakistan into a top-five global market for a reduced-risk category, across the Middle East and South Asia.</span></li>
+      <li><span class="role">Junior Area Manager</span><span class="meta">British American Tobacco Pakistan &middot; Aug 2019 &ndash; Aug 2020</span><span class="out">Launched a new nicotine pouch category.</span></li>
+      <li><span class="role">Brand Activation Manager</span><span class="meta">British American Tobacco Pakistan &middot; Mar &ndash; Jul 2019</span><span class="out">Pakistan&rsquo;s first new-category workshop, plus an always-on brand activation platform.</span></li>
+      <li><span class="role">Area Manager, DG Khan</span><span class="meta">British American Tobacco Pakistan &middot; Aug 2017 &ndash; Feb 2019</span><span class="out">Absolute share leadership above 50%. Best Region, South Punjab.</span></li>
+      <li><span class="role">Brands Attach&eacute;, Premium</span><span class="meta">British American Tobacco Pakistan &middot; Jan &ndash; Apr 2016</span><span class="out">Head-office secondment during the territory role: a premium brand migration and a relaunch.</span></li>
+      <li><span class="role">Territory Manager</span><span class="meta">British American Tobacco Pakistan &middot; Oct 2014 &ndash; Jul 2017</span><span class="out">Sales, distribution and trade marketing across two Karachi territories.</span></li>
+        </ol>
+      </details>
   </div>
 </section>
 </main>
@@ -520,7 +534,6 @@ footer p{color:var(--ink-2);max-width:52ch}
 <footer>
   <div class="wrap">
     <h2>Contact</h2>
-    <p>Happy to walk through any of these in detail, including the decisions I refused and what each build still does not do.</p>
     <div class="foot-links">
       <a href="mailto:abbasi.abdullah91@gmail.com">abbasi.abdullah91@gmail.com</a>
       <a href="https://www.linkedin.com/in/abdullahabbasi91/" rel="me noopener">LinkedIn profile</a>
